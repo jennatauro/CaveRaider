@@ -1,0 +1,19 @@
+
+SwordButton.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+SwordButtonDown
+  rotate: false
+  xy: 1, 1
+  size: 401, 400
+  orig: 401, 400
+  offset: 0, 0
+  index: -1
+SwordButtonUp
+  rotate: false
+  xy: 404, 1
+  size: 401, 400
+  orig: 401, 400
+  offset: 0, 0
+  index: -1
