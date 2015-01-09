@@ -75,7 +75,7 @@ public class MainCharacter implements ApplicationListener {
         sbSpriteBatch = new SpriteBatch();//use to draw multiple sprites at once apparently better
         for (int i = 0; i < 8; i++) {
             int k = 1;
-            tTemp = new Texture(Gdx.files.internal("BadLuck" + i + ".png"));
+            tTemp = new Texture(Gdx.files.internal("Sprite" + i + ".png"));
             if (i > 3) {
                 k = 3;
             }
