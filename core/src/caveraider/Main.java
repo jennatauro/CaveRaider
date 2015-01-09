@@ -5,7 +5,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 
 
-
 /**
  * Created by jennatauro on 08/01/2015.
  */

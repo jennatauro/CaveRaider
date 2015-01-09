@@ -33,10 +33,12 @@ public class MainCharacter implements ApplicationListener {
     public float getCharacterY() {
         return fCharacterY;
     }
+
     public float getCharacterX() {
         return fCharacterX;
     }
-    public boolean getShield(){
+
+    public boolean getShield() {
         return bShieldR;
     }
 
@@ -205,10 +207,10 @@ public class MainCharacter implements ApplicationListener {
             sbSpriteBatch.draw(araWalking[nCharacterRotation].getKeyFrame(stateTime, true), fCharacterX, fCharacterY, fCharacterWidth, fCharacterHeight);//Drawing the animation from the array of animations based on the character rotation
         } else if (nCharacterRotationDeg == 0) {
             sbSpriteBatch.draw(araWalking[nCharacterRotation].getKeyFrame(stateTime, true), fCharacterX, fCharacterY, fCharacterWidth, fCharacterHeight);//Drawing the animation from the array of animations based on the character rotation
-        }else if (nCharacterRotationDeg == 180) {
+        } else if (nCharacterRotationDeg == 180) {
             sbSpriteBatch.draw(araWalking[nCharacterRotation].getKeyFrame(stateTime, true), fCharacterX, fCharacterY, fCharacterWidth, fCharacterHeight);//Drawing the animation from the array of animations based on the character rotation
 
-        }else if (nCharacterRotationDeg == 270) {
+        } else if (nCharacterRotationDeg == 270) {
             sbSpriteBatch.draw(araWalking[nCharacterRotation].getKeyFrame(stateTime, true), fCharacterX, fCharacterY, fCharacterWidth, fCharacterHeight);//Drawing the animation from the array of animations based on the character rotation
 
         }

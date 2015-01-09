@@ -21,7 +21,8 @@ public class Map implements ApplicationListener {
     TiledMapTileLayer[] arclCollisionLayer;
     int nMapScale;
     int nMapNumber;
-    Map(int nMapNumber_,OrthographicCamera camera_) {
+
+    Map(int nMapNumber_, OrthographicCamera camera_) {
         nMapNumber = nMapNumber_;
         camera = camera_;
     }
@@ -32,7 +33,7 @@ public class Map implements ApplicationListener {
         tiledMap = new TmxMapLoader().load("Map" + nMapNumber + ".tmx");
         arclCollisionLayer = new TiledMapTileLayer[tiledMap.getLayers().getCount()];//The collision layer is used to get tile IDs
         tiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap, nMapScale);//Set the render to the map and scale it
-        for (int i = 0; i < tiledMap.getLayers().getCount()-1; i++) {//Put all the layers from the map into the collision layer array
+        for (int i = 0; i < tiledMap.getLayers().getCount() - 1; i++) {//Put all the layers from the map into the collision layer array
             arclCollisionLayer[i] = (TiledMapTileLayer) tiledMap.getLayers().get(i);
         }
 
