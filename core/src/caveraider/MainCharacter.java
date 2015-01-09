@@ -21,24 +21,20 @@ public class MainCharacter implements ApplicationListener {
     Map[] armMaps;
     OrthographicCamera camera;
     float fCharacterVelocityX = 0, fCharacterVelocityY = 0, fCharacterX, fCharacterY, fCharacterWidth, fCharacterHeight;
-    int nSHeight, nSWidth, nCharacterRotation = 1, nCharacterRotationDeg = 0, nLayerCount, nCurrentMap = 0, nVelocityX, nVelocityY, nShieldTimer,nSwordTimer;
+    int nSHeight, nSWidth, nCharacterRotation = 1, nCharacterRotationDeg = 0, nLayerCount, nCurrentMap = 0, nVelocityX, nVelocityY, nShieldTimer;
     Animation[] araWalking;
     ArrayList<FireBall> arlFireBalls;
-    Texture tTemp, tFireBall, tShield, tSword;
-    Sprite spSword;
+    Texture tTemp, tFireBall, tShield;
     SpriteBatch sbSpriteBatch;
     float stateTime;
     float fOldX, fOldY, tileWidth, tileHeight;
-    boolean bCollidedX, bCollidedY, bJustSet, bShieldR, bShieldT, bSword;
+    boolean bCollidedX, bCollidedY, bJustSet, bShieldR, bShieldT;
 
     public float getCharacterY() {
         return fCharacterY;
     }
     public float getCharacterX() {
         return fCharacterX;
-    }
-    public boolean getSword(){
-        return bSword;
     }
 
     public void setMaps(Map[] armMaps_) {
@@ -66,10 +62,6 @@ public class MainCharacter implements ApplicationListener {
         fCharacterHeight = nSHeight * 120 / 1080;
         tFireBall = new Texture(Gdx.files.internal("FireBall.png"));
         tShield = new Texture(Gdx.files.internal("Shield.png"));
-        tSword = new Texture(Gdx.files.internal("FireSword.png"));
-        spSword = new Sprite(tSword);
-        spSword.setSize(nSWidth * 40 / 1794, nSHeight * 175 / 1080);
-        spSword.setOrigin(spSword.getWidth() / 2, 0);
         araWalking = new Animation[8];//array of animations
         arlFireBalls = new ArrayList<FireBall>();
         sbSpriteBatch = new SpriteBatch();//use to draw multiple sprites at once apparently better
@@ -204,41 +196,16 @@ public class MainCharacter implements ApplicationListener {
         } else {
             nShieldTimer = 0;
         }
-        if(bSword) {
-           nSwordTimer++;
-            if(nSwordTimer==10){
-                bSword=false;
-                nSwordTimer=0;
-            }
-        }
 
-
-        spSword.setRotation(nCharacterRotationDeg + 180);
 
         if (nCharacterRotationDeg == 90) {
             sbSpriteBatch.draw(araWalking[nCharacterRotation].getKeyFrame(stateTime, true), fCharacterX, fCharacterY, fCharacterWidth, fCharacterHeight);//Drawing the animation from the array of animations based on the character rotation
-            spSword.setPosition(fCharacterX, fCharacterY + fCharacterHeight / 4);
-            if (bSword) {
-                spSword.draw(sbSpriteBatch);
-            }
         } else if (nCharacterRotationDeg == 0) {
             sbSpriteBatch.draw(araWalking[nCharacterRotation].getKeyFrame(stateTime, true), fCharacterX, fCharacterY, fCharacterWidth, fCharacterHeight);//Drawing the animation from the array of animations based on the character rotation
-            spSword.setPosition(fCharacterX, fCharacterY + fCharacterHeight / 2);
-            if (bSword) {
-                spSword.draw(sbSpriteBatch);
-            }
         }else if (nCharacterRotationDeg == 180) {
-            spSword.setPosition(fCharacterX+fCharacterWidth/2, fCharacterY + fCharacterHeight / 4);
-            if (bSword) {
-                spSword.draw(sbSpriteBatch);
-            }
             sbSpriteBatch.draw(araWalking[nCharacterRotation].getKeyFrame(stateTime, true), fCharacterX, fCharacterY, fCharacterWidth, fCharacterHeight);//Drawing the animation from the array of animations based on the character rotation
 
         }else if (nCharacterRotationDeg == 270) {
-            spSword.setPosition(fCharacterX+fCharacterWidth/2, fCharacterY + fCharacterHeight / 4);
-            if (bSword) {
-                spSword.draw(sbSpriteBatch);
-            }
             sbSpriteBatch.draw(araWalking[nCharacterRotation].getKeyFrame(stateTime, true), fCharacterX, fCharacterY, fCharacterWidth, fCharacterHeight);//Drawing the animation from the array of animations based on the character rotation
 
         }
