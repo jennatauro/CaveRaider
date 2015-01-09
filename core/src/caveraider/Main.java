@@ -13,6 +13,7 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 public class Main extends Game {
     OrthographicCamera camera;
     MainCharacter mainCharacter;
+    Enemy bat;
     Controls controls;
     int nNumberOfMaps = 2;
     Map[] armMaps;
@@ -31,6 +32,12 @@ public class Main extends Game {
         mainCharacter.setMaps(armMaps);
         mainCharacter.setCamera(camera);
         mainCharacter.create();
+        bat = new Enemy();
+        bat.setMainCharacter(mainCharacter);
+        bat.setMaps(armMaps);
+        bat.setCamera(camera);
+
+        bat.create();
 
         controls.create();
 
@@ -50,6 +57,11 @@ public class Main extends Game {
         armMaps[mainCharacter.nCurrentMap].render();
         mainCharacter.render();
         controls.render();
+
+        bat.setFx(mainCharacter.getCharacterX());
+        bat.setFy(mainCharacter.getCharacterY());
+        bat.setShield(mainCharacter.getShield());
+        bat.render();
 
     }
 

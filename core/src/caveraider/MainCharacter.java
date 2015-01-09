@@ -36,6 +36,9 @@ public class MainCharacter implements ApplicationListener {
     public float getCharacterX() {
         return fCharacterX;
     }
+    public boolean getShield(){
+        return bShieldR;
+    }
 
     public void setMaps(Map[] armMaps_) {
         armMaps = armMaps_;
