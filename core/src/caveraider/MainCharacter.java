@@ -142,8 +142,6 @@ public class MainCharacter implements ApplicationListener {
         sbSpriteBatch.setProjectionMatrix(camera.combined);
         camera.update();
 
-        //System.out.println(((fCharacterX+tileWidth / 2)/tileWidth) + " is x" ); // used to check the tile of the character
-        //System.out.println(((fCharacterY+tileHeight / 2)/tileHeight) + " is Y" );
 
         fOldX = fCharacterX;//This is used for resetting the players position if they hit a wall
         fOldY = fCharacterY;
